@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;list-style: none;
+		}
+		ul li{
+			width: 100px;height: 50px;text-align: center;line-height: 50px;border: 1px solid #000 ;
+			display: none;
+		}
+		#change:hover ul li{
+			display: block;
+			cursor: pointer;
+		}
+		#change{
+			width: 102px;
+		}
+		body{
+			background: red;
+		}
+	</style>
+</head>
+<body id="boi">
+	<div id="change">
+		<div id="poi" style="width: 100px;height: 50px;text-align: center;line-height: 50px;border: 1px solid #000">换皮肤</div>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		const app =['red','blue','pink'];
+		var oL=document.getElementsByTagName('li')
+		var oB=document.getElementById('boi')
+		for(let i=0;i<oL.length;i++){
+			oL[i].style.backgroundColor=app[i]
+
+			oL[i].onclick=function(){
+				oB.style.backgroundColor=app[i]
+			}
+		}
+
+	</script>
+</body>
+</html>

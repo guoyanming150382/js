@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;margin: 0;
+		}
+		input{
+			display: block;
+			float: left;
+			width: 200px;
+			height: 60px;
+			line-height: 60px;
+		}
+		div{
+			float: left;
+			width: 60px;height: 60px;
+			line-height: 60px;
+			text-align: center;
+			background: #aaa;
+		}
+	</style>
+</head>
+<body>
+	<div id="jia">+</div>
+	<input type="text" id="shop" min="0" value="1" >
+	<div id="jian">-</div>
+	<br>
+	<p>商品：<span id="yuan">5</span>元</p>
+	<script type="text/javascript">
+		var left=document.getElementById('jia')
+		var right=document.getElementById('jian')
+		var shopio=document.getElementById('shop')
+		var os=document.getElementById('yuan')
+		left.onclick=function(){
+			shopio.value=parseInt(shopio.value)+1
+			os.innerHTML=shopio.value*5
+			if(shopio.value>0){
+				right.style.backgroundColor="#aaa"
+			}
+		}
+		right.onclick=function(){
+			if(shopio.value>0){
+				shopio.value=shopio.value-1
+				os.innerHTML=shopio.value*5
+				if(shopio.value==0){
+					right.style.backgroundColor="pink"
+				}
+
+			}else if(shopio.value<=0){
+				shopio.value=0;
+			}
+		}
+		$('#shop').on('input', function() {
+			 if(isNaN($(this).val())){
+			 	$(this).val(0)
+			 }else if($(this).val()[0]==0){
+			 	$(this).val($(this).val().substr(1))*1
+			 }else{
+			 	os.innerHTML=shopio.value*5
+			 }
+		});
+		// $('#shop').on('input', function(event) {
+		// 	os.innerHTML=shopio.value*5
+		// });
+	</script>
+</body>
+</html>
