@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<!-- 数据类型 
+	string boolean number underfined
+	null object
+	-->
+
+	<!-- undefined与null是绝等于的 
+		NaN!=NaN   true
+	-->
+	<script type="text/javascript">
+		
+		console.log("花括号",jQuery.type({}))
+		var a={}
+		console.log("a",jQuery.type())
+		console.log("null",jQuery.type(null))
+		// underfined
+		var op
+		console.log('underfined',op)
+
+		//null
+		console.log("null++++",jQuery.type(null))
+		console.log('typeof null',typeof(null))
+
+		// 布尔值
+		console.log("布尔值",jQuery.type(false))
+		console.log("布尔值",jQuery.type(true))
+		var box=-1; var io=Boolean(box)
+		console.log("io",io)//box等于0false ，非零都是true 
+		var tu='hrllo'; var opp=Boolean(tu)
+		var opp1 =Boolean("")
+		console.log(opp)
+		console.log("opp1",opp1)
+		console.log("布尔值opp",jQuery.type(opp))
+		// console.log(jQuery.type(boolean))//报错not defined
+
+		// Number
+		// 精度 浮点数
+		console.log(0.1+0.2)//会有非零的小数，小数位有十七位
+		console.log((0.1*10+0.2*10)/10)//会没有 有非零的小数
+		// 进制
+		var b=077;
+		console.log("b",b)
+
+		var op=0xB3
+		console.log("16进制",op)//十六进制零后面要加上x，不然报错
+
+		// 无穷
+		console.log(Number.POSITIVE_INFINITY)//Infinity
+		console.log("无穷",9/0)
+		// NaN
+		console.log(jQuery.type(NaN))//number
+		console.log(jQuery.type(0))
+		//isNaN不是一个数字
+		console.log(isNaN(5))//false
+		//js把小数点后为0的数字省略掉
+		console.log('小数点',69.000000)
+		// parseInt 能转换进制
+		console.log(parseInt('ads123'))//NaN
+		console.log(parseInt(33.6))//33
+		console.log(parseInt(''))//NaN
+		console.log(parseInt(69,16))//按照16进制转换
+		// number
+		console.log("no1",Number(true))//1
+		console.log("no2",Number(false))//2
+		console.log("no3",Number(Boolean))//NaN
+		console.log("no4",Number(56))//56
+		console.log("no5",Number(0XFF))//NUMBER会将其他进制的数值转为十进制
+		console.log("no6",Number(NaN))//NaN
+		console.log("no7",Number(null))//0
+		console.log("no8",Number(String))//NaN
+		console.log("no9",Number(Number))//NaN
+		console.log("no10",Number(function(){}))//NaN
+		console.log("no10",Number('00120'))//120
+		console.log("no11",Number('0012aad'))//NaN
+		console.log("no14",Number('aa'))//NaN
+		console.log("no15",Number(0.2654552400000000))//0.26545524
+		console.log("no16",Number('0.36'))//0.36
+		console.log("no17",Number('0.30006000'))//0.30006
+
+		// String
+		var  op2={
+			toString:()=> {
+				return '1233'
+			}
+		};
+		var box1212=698
+		console.log("字符进制输出",box1212.toString(16))//按照16进制输出
+		var qwe=null
+		console.log("字符进制输出",toString(qwe))
+		// 如果值有toString()方法，则调用该方法并返回相应的结果；如果是null或者undefined，则返回"null"或者"undeinfed"。
+		// parseInt()
+		console.log("parse",parseInt('56.12'));//56，小数点后不在截取
+		console.log("pase进制",'01010011',10)
+		console.log("字符",op2)
+		console.log("字符",Number(op2))
+		// parseFloat()
+		console.log('浮点点',parseFloat('0xAD'))//0  不认识16进制
+		console.log('浮点点',parseFloat('0756'))//0  认识8进制
+		console.log('浮点点',parseFloat('0.756.006'))//只认识第一个小数点
+		console.log('浮点点',parseFloat('0123.400'))//123.4会去掉0，把科学计数法转成普通数值
+		prompt('输入')
+
+		var one =(false || {} || null)
+		var two =(null || false || "")
+		var three =([] || 0 || true)
+
+		console.log('123',one,two,three)
+
+		// 创建对象
+	</script>
+</body>
+</html>
