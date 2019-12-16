@@ -1,0 +1,94 @@
+<!-- 运算符
+1.一元运算符：
+	递增：
+	a++  先赋值再加加
+	++a 先赋值再加加 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 递加、递减
+		var a=10;
+		console.log(a++)//10
+		console.log(a=+1)//正1
+		var n=10;
+		console.log(++n)//11
+
+		var an=10;console.log("减等",--an)//9
+		var a1n=10;console.log("减等",an--)//9
+		//前置后置（隐式转换）
+		var b='98';console.log('隐士',b++)//98先赋值在累加
+		var b='98';console.log('隐士',++b)//99先累加再赋值
+		//其他类型的运算规则
+
+		var c='ad';console.log('其他',c++)
+		var box=false;box++
+		console.log('false',box)
+
+		var c1=true;c1++
+		console.log('true',c1)
+		var to=false;
+		console.log(-to)
+
+		var c2='3.6';++c2
+		console.log('c2',c2)
+		//加减运算符
+		var d='12';console.log("d",+d)
+		var d2='ad';console.log("d",+d2)
+		var d1=false;console.log('d1',+d1)
+		// string+number=string
+
+		console.log(100-true)//true是1
+		console.log(100-null)//null被转成了0
+		console.log(100/Infinity )//0
+		console.log(100/3 )//
+
+		// 算数运算符
+		// 加法
+		var e=1+NaN;console.log("e",e)//加法中只要有一个NAn，结果就是NaN
+		console.log(Infinity+Infinity)//Infinity
+		// 负无穷加上负无穷是负无穷
+		console.log("Infinity",Infinity+-Infinity)//NaN
+		//var e1=10+对象  //10[Object]
+		// 减法
+		// 无穷-无穷等于NaN
+		// 无穷减去负无穷等于NaN
+		var e2=100-"";console.log("e2",e2)//100, ""就是0
+		var e3=1-null;console.log('e3',e3)//null是零
+		var e4=1-"asd";console.log('e4',e4)//NaN
+		// 除法
+		var f=Infinity/Infinity;console.log('f',f)//nan
+		var f2=Infinity/-Infinity;console.log('f2',f2)//nan
+		var f2=-Infinity/Infinity;console.log('f2',f2)//nan
+		var f2=-Infinity/-Infinity;console.log('f2',f2)////nan
+		var f6=100/null;//无穷
+		var f7=100/"";//无穷
+		var f8=100/"lee"//nan
+		//求模(取余)
+		var g=10%NaN;console.log("g",g)
+		var g1= Infinity % Infinity;console.log("g",g1)//NaN		
+		var g2= -Infinity %  Infinity ;console.log("g",g2)//NaN
+		var g3= -Infinity %  -Infinity;console.log("g",g3) //NaN
+		//var box = 100 %  '';				//NaN
+		// var box = 100 %  null;				//NaN
+		// var box = 100 %  'Lee';				//NaN
+		// var box = 100 %  对象;				//NaN
+		//var f9=100/对象//nan
+		// var e5=12-对象;console.log('e5',e5)//nan
+		// 关系运算符
+		var h='3'>'23'
+		console.log("h",h)
+		var h1='3'<'26';
+		console.log("h1",h1)
+		// 如果a大于一个对象，则是false
+		var h2={};var h3={};
+		console.log('h3',h2==h3)//false 比较的是地址
+		// {}空对象是true
+		// 两个！！相当于把数据转换成了布尔类型
+	</script>
+</body>
+</html>

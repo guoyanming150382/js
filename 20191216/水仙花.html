@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr=[]
+
+		for(var i=100;i<1000;i++){
+			var ge=i%10,shi=parseInt((i/10)%10),bai=parseInt((i/100)%10);
+
+			var sun=Math.pow(ge,3)+Math.pow(shi,3)+Math.pow(bai,3)
+
+			if(sun==i){
+				arr.push(sun)
+			}
+		}
+		console.log(arr)
+	</script>
+</body>
+</html>

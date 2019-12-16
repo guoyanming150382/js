@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr=[
+			{fen:91,sex:'men',name:'1'},
+			{fen:81,sex:'women',name:'2'},
+			{fen:71,sex:'men',name:'3'},
+			{fen:61,sex:'women',name:'4'},
+			{fen:31,sex:'men',name:'5'},
+			{fen:51,sex:'women',name:'6'},
+			{fen:21,sex:'men',name:'7'},
+			{fen:11,sex:'women',name:'8'},
+			{fen:47,sex:'women',name:'8'},
+			{fen:63,sex:'men',name:'8'},
+			{fen:56,sex:'men',name:'9'}
+		]
+		var arr1=[];
+		for(var i=0;i<arr.length;i++){
+			if(arr[i].fen>=60 && arr[i].sex=='men'){
+				arr1.push(arr[i])
+			}
+
+		}
+		console.log(arr1.length)
+	</script>
+</body>
+</html>
