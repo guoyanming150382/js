@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var str="ahgdahgdgahjgdfagjkhdghjkagfasgjkh";
+		var arr=[];
+		var news = str.split('')
+		for(var i=0;i<news.length;i++){
+			if(news[i]=="a"){
+				console.log(11,news[i])
+				arr.push(news[i])
+			}
+		}
+		console.log("arr-arr",arr)
+
+		var arrt=[]
+		for(var i=0;i<str.length;i++){
+			if(str[i]=='a'){
+				arrt.push(str[i])
+				console.log(i)
+			}
+		}
+		console.log(arrt)
+
+
+		var bu=3;
+		console.log("121",bu.toString(2))//toString()中加参数可以转化进制   11（二进制）
+		console.log("121",bu.toFixed(2))
+	</script>
+</body>
+</html>

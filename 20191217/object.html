@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 命名object
+		var a=new Object()
+		a.name="盖伦";
+		a.old=96;
+		console.log(a)
+
+		var b=Object()
+		b.nbme="赵云";
+		b.old=96;
+		console.log(b)
+
+		var c={
+			name:'提莫',
+			aderss:'班德尔城',
+			job:'archer'
+		}
+		console.log(c)
+
+		var d={}
+		d.name="波比";
+		d.old="122";
+		console.log(d)
+
+		// 给对象创建方法
+		var e={
+			aiox:function(){
+				console.log('伊泽瑞尔')
+			}
+		}
+		console.log(e.aiox)
+
+		// delete删除属性
+
+		delete c.job
+		console.log('删除',c)
+
+		//判断属性书否存在
+		// ARRY
+		// 创建数组
+		var f=Array(10)//长度为10的数组
+		var f1= new Array(7)//长度为7的数组,new可以省略
+		console.log(f)
+		console.log(f1)
+
+		var f2=Array('普利','不误')
+		console.log(f2)
+
+		var f3=[1,2,];console.log(f3.length)
+
+		var f4=[1,2,3,4]
+		console.log("f4",f4)
+		f4.length=9;
+		console.log(f4.length)//强制长度增加到9
+		f4[f4.length]='蓝瘦'//通过长度增加一个元素
+		console.log(f4)
+
+		var f5 =[1,2,3,"安静地刚"]
+		console.log(f5.valueOf())
+		console.log(f5.toLocaleString())//将f5转化成了  1,2,3,安静地刚
+		console.log(f5.toString())//将f5转化成了  1,2,3,安静地刚
+
+		// 给数组加入分割标致
+		var f6 =[1,2,3,"安静地刚"]
+		console.log(f6.join('/'))
+
+		var f7=[1,2,3,5]
+		console.log('f7',f7.pop())//移除数组末尾元素，并返回移除的元素
+
+		var f8=[1,2,3,3];
+		console.log(f8.shift())//移除数组开头元素，并返回移除的元素
+		console.log(f8)//移除数组开头元素，并返回移除的元素
+
+		var f9=[1,2,3,5,6]
+		console.log(f9.unshift("盐城"))
+		console.log(f9)
+
+		// 逆向排序
+		var f10=[69,1,2,3,5]
+		console.log(f10.reverse())
+
+		var f11=[5,4,3,2,1,6,8,7]
+		console.log("f11",f11.sort())
+
+		var f12=[1,236,25,36,2,3,6]
+		console.log("f12",f12.sort())
+
+		// 排序
+		var f13=[1,236,25,36,2,3,6];
+		f13.sort((m1,m2)=>{
+			return m1-m2
+		})
+		console.log("f13",f13)
+
+		//操纵数组
+		var f14=[1,2,3,6,5,9,5,]
+
+		var f141=f14.concat('计算机')
+		// concat()基于当前数组重新建一个数组
+		console.log('f141',f141)
+		console.log("原数组",f14)
+
+		var f15=[1,2,3,6,5,8,5,9]
+
+		console.log(f15.slice(2))//3,6,5,8,5,9一到二全部被截取了
+
+		// splice
+		var f16=[8,6,6,4,89,5,5,8]
+		var f161=f16.splice(0,1)
+		console.log('f161',f161)
+		console.log('f161',f16)
+		// splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。
+		//splice() 替换元素
+		var f17=[1,2,32,6,58,7,87,9]
+		f17.splice(1,1,"大剑")
+		console.log(f17)
+		// splice插入数据，第二个截取写0，第三个写插入的元素
+		var f18=[1,2,32,6,58,7,87,9]
+		f18.splice(0,0,"大剑")
+		console.log(f18)
+	</script>
+</body>
+</html>

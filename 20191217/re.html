@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	姓名：<input type="text" id="name">
+	年龄：<input type="text" id="old">
+	<div></div>
+	<input type="submit" value="提交" id="ti">
+	<script type="text/javascript">
+		$('#ti').click(function() {
+			$('#name').focus()
+			var name=$('#name').val();
+			var old=$('#old').val();
+			var result=panduan(name);
+
+			if(result.status==false){
+					$('div').empty()
+				if(result.msg){
+					$('div').append("<span>名字长度不合法</span>")
+				}else if(result.mio){
+					$('div').append("<span>名字不能为空</span>")
+				}else{
+					$('div').empty()
+				}
+			}
+		});
+
+
+		function panduan(name){
+			if(name==""){
+				return {
+					status:false,
+					mio:'asdadasd'
+				}
+			}
+
+			if(name.length<2 || name.length>6){
+				return {
+					status:false,
+					msg:'用户名不合法'
+				}
+			}
+
+			return {
+				status:true
+			}
+		}
+	</script>
+</body>
+</html>

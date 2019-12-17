@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a=8;
+		switch(a){
+			case 1:
+				console.log(1);
+				break;
+			case 2:
+				console.log(2);
+				break;
+			case 7:
+			console.log(8);
+				break;
+			default://default相当于else
+				console.log("wafgasd")	
+		}
+
+		var b=90;
+		var i=0;
+		do{
+			console.log("天亮了")
+			i++
+			console.log(i)
+;
+			console.log(b)
+		}while(b<=80)
+
+
+		var c1=6;
+		while(c1>2){
+			c1--;
+			console.log("c1",c1)
+		}
+
+
+		// for in
+		var d1={
+			name:'阿尔萨斯',
+			old:66,
+			job:'saber',
+			power:169
+		}
+		for(var p in d1){
+			console.log("ppp",p)
+		}
+
+		// continue
+	
+
+		// with
+		var e1={
+			name:'盖伦',
+			job:'saber',
+			adress:'德玛西亚'
+		}
+		e1.name='凯南';
+		console.log(e1.name)
+
+		var e2={
+			name:'奥巴马',
+			job:'圣枪游侠',
+			adress:'暗影岛'
+		}
+		with(e2){
+			e2.name="赵云";
+			job:'蜀国';
+			adress:'将军';
+		}
+		console.log(e2)
+	</script>
+</body>
+</html>
