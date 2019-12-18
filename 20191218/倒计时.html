@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var timer=setInterval(function(){
+
+		},1000)
+
+		zhuan('2019-12-19 9:00:45')
+
+		function zhuan(time){
+			var endTime=new Date(time)
+			var startTime=new Date()
+			//转化为秒
+			var allsecond=(endTime-startTime)/1000
+			console.log("秒",allsecond)
+			console.log("总毫秒数",endTime-startTime)
+			console.log("秒",allsecond)
+			//转化为天
+			var day=Math.floor(allsecond/(60*60*24))
+			console.log("天",day)
+			//小时
+			var hour=Math.floor(allsecond/(60*60))
+			console.log(hour)
+			//分
+			var minute=allsecond%60
+			console.log(minute)
+			//秒
+		}
+		// function changeTime(time){
+		// 	var a=new Date(time)
+
+		// 	var year=a.getFullYear();
+		// 	var month=a.getMonth()+1;
+		// 	var day=a.getDate();
+		// 	var hour=a.getHours()	
+		// 	var minutes=a.getMinutes()	
+		// 	var second=a.getSeconds()
+
+			
+
+		// }
+	</script>
+</body>
+</html>

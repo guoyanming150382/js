@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="e1">
+		
+	</div>
+	<script type="text/javascript">
+		var time1=new Date(1234567899000)
+		console.log(time1)
+		// 	var time =1245678963654
+		// zhuan(time)
+
+		function zhuan(time){
+			//转换成标准时间戳
+			if(time.toString().length!=13){
+				var bu=Math.pow(10,(13-time.toString().length))
+				var a=new Date(bu*time);
+			}else{
+				var a=new Date(time);
+			}
+
+			var year=a.getFullYear();
+			var month=a.getMonth()+1;
+			var day=a.getDate();
+			var hour=a.getHours();
+			var minutes=a.getMinutes();
+			var second=a.getSeconds();
+
+			return year+'年'+month+'月'+day+'日-----'+hour+':'+minutes+':'+second
+		}
+
+		$.ajax({
+			url:'http://127.0.0.1:3000/list',
+			type:'get',
+			dataType:'json',
+			success:function(res){
+				console.log(res)
+				if(res.code==200){
+					for(var i=0;i<res.data.length;i++){
+						var shengri=zhuan(res.data[i].date)
+						$('.e1').append(`
+							<div>${res.data[i].name}的职业是${res.data[i].job},他的出生日期是${shengri}</div>`)
+					}
+				}
+			}
+		})
+	</script>
+</body>
+</html>

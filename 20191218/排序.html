@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	var arr=[1,2,3,6,563,62,58,2,15,52,47,788,4,78,525,4,47,85,4,1,58,52,4,7,9,63,2,5,32]
+
+	var a1=arr.sort(function(m1,m2){
+		return m1-m2
+	})
+	console.log(a1)
+
+	// 合并数组
+	var arr1 = ['asdasd','asda','asd','asda']
+
+	console.log(arr1.concat(arr))
+
+	// slice从已有的数组里返回选中元素,不改变原数组
+	var b= arr1.slice(0, 2)
+	var b1= arr1.slice(1, 2)
+	console.log("b",b)
+	console.log("b++++",arr1)
+	console.log("b1",b1)
+
+	//splice 返回被删除的元素
+	var arr2 = ['asdasd','asda','asd','asda']
+	console.log("splice",arr2.splice(0,2))
+
+	// 增加(原数组增加，选中第0位)
+	var arr21 = ['asdasd','asda','asd','asda']
+	console.log(arr21.splice(1,0,"阿达","爱仕达多"))
+	console.log('arr21',arr21)
+
+		// 替换
+		arr22=['asdasd','asda','asd','asda']
+	console.log('arr22',arr22.splice(1,1,"阿斯顿撒多"))
+	console.log(arr22)
+
+
+	var  str="asdadasdasd.jpg"
+		var num=str.indexOf('.')
+		//indexOf返回某个指定的字符串值在字符串中首次出现的位置。
+	console.log(str.slice(num))
+	console.log(str.slice(str.indexOf('d')))
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;margin: 0;
+			list-style: none;
+		}
+		ul{
+			margin: 60px auto;
+			width: 306px;
+			height: 306px;
+			border: 2px solid #f00;
+			position: relative;
+		}
+		li,div{
+			width: 100px;
+			height: 100px;
+			text-align: center;
+			line-height: 100px;
+			border: 1px solid #000;
+		}
+		.begin{
+			background: red;color: #fff;
+		}
+		.on{
+			background: pink;color: #fff;
+		}
+		li{
+			position: absolute;
+			top: 0;left: 0;
+		}
+		ul li:nth-child(2){
+			left: 102px;
+		}
+		ul li:nth-child(3){
+			left: 204px;
+		}
+		ul li:nth-child(4){
+			top: 102px;
+			left: 204px;
+		}
+		ul li:nth-child(6){
+			top: 204px;
+			left: 204px;
+		}
+		ul li:nth-child(7){
+			top: 204px;
+			left: 102px;
+		}
+		ul li:nth-child(8){
+			top: 204px;
+			left: 0px;
+		}
+		ul li:nth-child(9){
+			top: 102px;
+			left: 0px;
+		}
+		ul div{
+			position: absolute;
+			top: 102px;left: 102px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<div class="begin">开始</div>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+	<script type="text/javascript">
+		var oLi=document.getElementsByTagName('li');
+		i=0;
+		var timer=null;
+		var suiJi=Math.ceil(Math.random()*1000);
+		$('.begin').click(function(){
+			if($(this).text()=='开始'){
+				$(this).text('暂停')
+				go()
+			}else{
+				$(this).text('开始')
+				clearInterval(timer)
+			}
+		})
+		function go(){
+				timer=setInterval(function(){
+					i++;
+					if(i>8){
+						i=0;
+					}
+					$('ul li').eq(i).addClass('on').siblings().removeClass('on')	
+				},suiJi--)
+			}
+	</script>
+</body>
+</html>

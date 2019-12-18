@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// es6方法 Set类型：ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。Set本身是一个构造函数，用来生成Set数据结构。
+		var arr=[1,2,3,4,5,6,7,8,9,152,1,2,2,4,4,2,54]
+		let add=new Set(arr)
+		console.log(add)
+		 yunarr=Array.from(add)
+		console.log(yunarr)
+
+		var arr1=[1,2,3,4,5,6,7,8,9,152,1,2,2,4,4,2,54]
+
+		function cun(m1){
+			var arrkong=[]
+			for(var i=0;i<m1.length;i++){
+				if(arr1.indexOf(arr1[i])===i){
+					arrkong.push(arr[i])
+				}
+			}
+			return console.log(arrkong)
+		}
+		cun(arr1)
+	</script>
+</body>
+</html>

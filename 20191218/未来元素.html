@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="ui" style="height: 300px;border: 1px solid #000">
+		
+	</div>
+	<script type="text/javascript">
+		$(document).delegate('.ui p', 'click', function() {
+			console.log($(this).index())
+		});
+		$('.ui').on('click','p',function() {
+				console.log($(this).index()+"sada")
+		});
+		for(var i=0;i<6;i++){
+			$('.ui').append('<p style="background:red">天地'+i+'</p>')
+		}
+
+	</script>
+</body>
+</html>
