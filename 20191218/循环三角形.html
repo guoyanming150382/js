@@ -1,1 +1,50 @@
-循环三角形.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		 function printStar2() {
+             var str = "";
+             for (var i = 1; i <= 10; i++) {
+                    for (var j = 0; j < 10 - i; j++) {
+                                str += "-";
+                    }
+                    for (var j = 0; j < (2*i - 1); j++) {
+                         str += "*";
+                       }
+                         str += "\n";
+                 }
+                 console.log(str);
+		     }
+		 printStar2();
+
+
+		var a=10,b=20
+		function tenp(a,b){
+			var temp=a//temp=10
+
+			a=b//a=20
+			b=temp//b=10
+			console.log(a,b)
+		}
+		tenp(a,b)
+		console.log(a,b)
+
+		document.write('<table>')
+			for(var i=0;i<6;i++){
+				document.write('<tr>')
+					for(var j=0;j<6-i;j++){
+						document.write('<td>'+' '+'</td>')
+					}
+					for(var d=0;d<(2*i-1);d++){
+						document.write('<td>'+'*'+'</td>')
+					}
+				document.write('</tr>')
+			}
+		document.write('</table>')
+	</script>
+</body>
+</html>

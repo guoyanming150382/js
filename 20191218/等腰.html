@@ -7,7 +7,21 @@
 <body>
 	<script type="text/javascript">
 
-		
+		function tetu(a){
+			var str="";
+			for(var i=0;i<a;i++){
+				for(var k=0;k<(a-i);k++){
+					str+=" "
+				}
+				for(var t=0;t<(2*i-1);t++){
+					str+="*"
+				}
+				str+="\n"
+			}
+
+			console.log(str)
+		}
+		tetu(10)
 	</script>
 </body>
 </html>

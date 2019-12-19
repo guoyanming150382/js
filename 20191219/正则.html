@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- text 返回true 或者 false
+		 + 表示1到n
+		 *       任意
+		 i       忽略大小写
+		 g      全局
+		 splite  返回数组
+		 replace search match exec() test()
+		 .  匹配任意一个字符   .. 匹配任意2个字符
+		 ^ 首字母   $尾字符   {7}出现7次
+		 \s 空格  \S非空格
+		 \b是否匹配到边界  |或
+		 $1  第一个分组
+
+		 贪婪：尽可能多的匹配，？标致贪婪匹配结束
+		 惰性：  （匹配）
+		 斜杠  \/
+
+		 ====================1111111111111111=============
+		 i       忽略大小写
+		 g       全局匹配
+		 test() 	正则验证方法 返回true或者false
+		 exec() 	正则验证方法，返回null或匹配的信息
+		 i忽略大小写  g全局匹配 m多行匹配
+		test()返回true或者false
+		exec()如果执行成功，返回包含所查找字符串的相关信息，失败返回null
+		match(正则)  返回匹配的字符串或者null
+		要被替换的字符串.replace(正则,要替换乘的字符)
+		search  返回所查找的位置，(index值)
+		要被拆分的字符.split(拆分标识) 返回被拆分成的数组用逗号隔开，标识被消除
+		正则实例属性：
+			正则.global  验证正则公式中是否有g
+			正则.ignoreCase  验证正则公式中是否有i
+			正则.Multiline  验证正则公式中是否有m
+
+
+	-->
+	<!-- 正则 案例-->
+
+	<script type="text/javascript">
+	/*创建正则对象*/
+	// RegExp对象法
+	var ab=new RegExp('12','i')
+	var ab1='thisd12sfd';
+	console.log('ab',ab.test(ab1))
+	// 字面量对象法 i不区分大小写
+	var ac=/9q/i;
+	var ac1='asad9Qasdasd';
+	console.log('ac',ac.test(ac1))
+	//一条语句匹配正则
+	console.log('ac',/dD/i.test('asDasdd'))
+	var ad=/p-/i;
+	console.log('ad',ad.exec('-P-qadads'))//返回匹配到的信息
+	//match
+	var ae= /uI/ig;
+	var ae1='asdadUi'
+	var ae2='asdadiu'
+	console.log('ae1',ae1.match(ae))
+	console.log('ae2',ae2.match(ae))//null
+	// replace
+	var af=/Op/ig;
+	var af1='aujas8Opwea';
+	console.log('af1',af1.replace(af,'阿萨德'))
+	//search
+	var ag=/iO/ig;
+	var ag1='asdad12ioasd/'
+	console.log('ag',ag1.search(ag))
+	//split
+	var ah=/-/ig;
+	var ah1='hadjajjdaj-ada--asdsa-asd';
+	console.log('ah',ah1.split(ah))//["hadjajjdaj", "ada", "", "asdsa", "asd"]
+		//---------\\\\\\\\\\
+	//正则对象的静态属性he实例属性
+		//---------\\\\\\\\\\
+	var ai =/uio/mig;
+	var ai1='asdauoi=sd2uio\n'	
+	   // 实例属性
+	console.log('global',ai.global)
+	console.log('ignoreCase',ai.ignoreCase)
+	console.log('multiline',ai.multiline)//是否设置了M
+	//---------\\\\\\\\\\
+	console.log('lastIndex',ai.lastIndex)//整数，代表下次匹配将从哪里字符位置开始
+	//---------\\\\\\\\\\
+	console.log('Source',ai.source)
+	</script>
+</body>
+</html>
