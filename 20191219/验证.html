@@ -7,8 +7,12 @@
 		input{
 			margin: 10px;
 		}
+		strong{
+			color: red;
+		}
 	</style>
 	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="layer/layer.js"></script>
 </head>
 <body>
 	
@@ -32,50 +36,122 @@
 				// 邮件
 				var Email=/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/
 
-				function yanzhen(user,idcard,inter,phone,email){
-					$(user).on('change',function() {
-						if(username.test($(user).val())==false){
-							$(user).next('.text').html('姓名不正确');
-							console.log($(user).val())
-						}else{
-							$(user).next('.text').html('');
+						function nameY(user){
+							if($(user).val()==''){
+								$(user).next('.text').html('姓名不能为空');
+								return false
+							}else if(username.test($(user).val())==false){
+								$(user).next('.text').html('姓名不正确');
+								return false
+							}else{
+								$(user).next('.text').html('');
+								return true
+							}
 						}
-					});
-					$(idcard).on('change',function() {
-						if(ID.test($(idcard).val())==false){
-							$(idcard).next('.text').html('身份证不正确');
-							console.log($(idcard).val())
-						}else{
-							$(idcard).next('.text').html('');
+						function IDY(idcard){
+							if($(idcard).val()==''){
+								$(idcard).next('.text').html('身份证不能为空');
+								return false
+							}else if(ID.test($(idcard).val())==false){
+								$(idcard).next('.text').html('身份证不正确');
+								return false
+							}else{
+								$(idcard).next('.text').html('');
+								return true
+							}
 						}
-					});
-					$(inter).on('change',function() {
-						if(IN.test($(inter).val())==false){
-							$(inter).next('.text').html('网址错误');
-							console.log($(inter).val())
-						}else{
-							$(inter).next('.text').html('');
+						function interY(inter){
+							if($(inter).val()==''){
+								$(inter).next('.text').html('网址不能为空');
+								return false
+							}else if(IN.test($(inter).val())==false){
+								$(inter).next('.text').html('网址错误');
+								return false
+							}else{
+								$(inter).next('.text').html('');
+								return true
+							}
 						}
-					});
-					$(phone).on('change',function() {
-						if(Phone.test($(phone).val())==false){
-							$(phone).next('.text').html('手机号码错误');
-							console.log($(phone).val())
-						}else{
-							$(phone).next('.text').html('');
+						function phoneY(phone){
+							if($(phone).val()==''){
+								$(phone).next('.text').html('网址不能为空');
+								return false
+							}else if(Phone.test($(phone).val())==false){
+								$(phone).next('.text').html('手机号码错误');
+								return false
+							}else{
+								$(phone).next('.text').html('');
+								return true
+							}
 						}
-					});
-					$(email).on('change',function() {
-						if(Email.test($(email).val())==false){
-							$(email).next('.text').html('邮箱错误错误');
-							console.log($(email).val())
-						}else{
-							$(email).next('.text').html('');
+						function emailY(email){
+							if($(email).val()==''){
+								$(email).next('.text').html('邮箱不能为空');
+								return false
+							}else if(Email.test($(email).val())==false){
+								$(email).next('.text').html('邮箱错误');
+								return false
+							}else{
+								$(email).next('.text').html('');
+								return true
+							}
 						}
-					});
-				}
 
-				yanzhen('#user','#Idcard','#inter','#phone','#email')
+						$('#user').on('input', function() {
+							nameY('#user')
+						});
+						$('#Idcard').on('input', function() {
+							IDY('#Idcard')
+						});
+						$('#inter').on('input', function() {
+							interY('#inter')
+						});
+						$('#phone').on('input', function() {
+							phoneY('#phone')
+						});
+						$('#email').on('input', function() {
+							emailY('#email')
+						});
+						
+				$('#ui').click(function() {
+					if(!nameY('#user')){
+						layer.alert('姓名不正确', {
+						    skin: 'layui-layer-lan'
+						    ,closeBtn: 0
+						    ,anim: 4 
+						  });
+					}else if(!IDY('#Idcard')){
+						layer.alert('身份证错误', {
+						    skin: 'layui-layer-lan'
+						    ,closeBtn: 0
+						    ,anim: 4 
+						  });
+					}else if(!interY('#inter')){
+						layer.alert('网址错误', {
+						    skin: 'layui-layer-lan'
+						    ,closeBtn: 0
+						    ,anim: 4 
+						  });
+					}else if(!phoneY('#phone')){
+						layer.alert('电话号码错误', {
+						    skin: 'layui-layer-lan'
+						    ,closeBtn: 0
+						    ,anim: 4 
+						  });
+					}else if(!emailY('#email')){
+						layer.alert('电话号码错误', {
+						    skin: 'layui-layer-lan'
+						    ,closeBtn: 0
+						    ,anim: 4 
+						  });
+					}else{
+						layer.alert('提交成功', {
+						    skin: 'layui-layer-lan'
+						    ,closeBtn: 0
+						    ,anim: 4 
+						  });
+					}
+				});
 	</script>
 </body>
 </html>
