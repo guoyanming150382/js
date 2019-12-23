@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+		函数的两个属性  arguments this callee:调用自己 
+		apply：第一个参数作用域 第二个参数
+		递归
+		var 变量提顶
+		闭包 把局部变量存在内存里，但是浪费内存空间
+	 	改变对象会影响其他对象
+
+	 	for(var i=0;i<3;i++) {} console.log(i) i=3
+	 	for(let i=0;i<3;i++) {} console.log(i) 拿不到i，报错
+
+	 	数组去重，数组排序(选择排序 冒泡排序)
+	 	注册登录，验证 this指向 变量 作用域
+	 	时间日期 layer
+	 -->
+
+	 <script type="text/javascript">
+	 	var a=100;
+	 	function ui(){
+	 		console.log(a)
+	 		var a=101
+	 	}
+	 	ui()
+	 	console.log(a)
+	 	//函数命名方式 
+	 	// function qw(){}  var a=function(){}
+	 	/*==============-------------
+	 	function b(sinFunction,num){
+	 		return sinFunction(num)
+	 	}
+	 	console.log(b())
+	 	-------==========*/ 
+
+	 	// arguments  是一个类数组对象，用于保存函数参数，他还有一个callee属性，该属性是一个指针，指向拥有这个arguments对象的函数。
+	 	//递归
+	 	function box(num) {
+			if (num <= 1) {
+				return 1;
+			} else {
+				return num * box(num-1);			
+			}
+		}
+		console.log("box",box(9))
+		// 利用callee调用本身 arguments.callee(num-1)调用了函数本身
+		function c(num){
+			if(num<=1){
+				return 1
+			}else {
+				return num*arguments.callee(num-1)
+			}
+		}
+		console.log("c",c(5))
+
+		// this
+		window.color='red';
+		console.log(this.color);
+
+		var d={
+			color:'pink',
+			saycolo:function(){
+				console.log('d',this.color)
+			}
+		}
+		d.saycolo()
+		console.log("d",this.color);
+		// 函数包含两个属性length：参数的长度，和prototype
+		function e(a,b,c,s,o){
+			console.log(1)
+		}
+		console.log("e",e.length)
+
+		//prototype有两个方法 apply：   call
+			function f(m1,m2){
+				return m1+m2
+			}	
+
+			function f1(m1,m2){
+				return f.apply(this,[m1,m2])
+			}
+			//this指向window
+			console.log('f1',f1(1,2))
+
+			function f2(m1,m2){
+				return m1+m2
+			}	
+
+			function f3(m1,m2){
+				return f2.apply(f2(),[m1,m2])
+			}
+			console.log('f3',f3(1,2))
+			// apply(作用域,[可写多个参数])
+
+			// call(作用域,参数,参数,参数)
+			function g(m1,m2){
+				return m1+m2
+			}
+			function g1(m1,m2){
+				return g.call(this,m1,m2)//this可以换成g()
+			}
+			console.log('g1',g1(5,2))
+
+			/*//////////////*********----
+			/////*/ 
+			// 变量 包含基本类型值 引用类型值
+
+			var h=new Object()
+			h.name='po'
+			console.log('h',h.name)
+
+			// 字面量不能添加属性 var h1='sd';h1.age=63;会报错
+			/*复制变量值 
+			基本数据类型复制的是值本身 
+			引用复制类型复制的是地址*/
+
+			// 基本数据类型
+			var i=90
+			var i1=i;
+			console.log('i',i,i1)//i与i1都等于90  但是他们互不影响，自己的值不是同一个
+
+			var i2=new Object()
+			i2.name='leen';
+			var i3=i2;
+			console.log('i2',i2,i3)//i2与i3相等并且指向的是同一个对象
+
+			// 当i发生变化 i2随着i3变化
+			i2.age=16;
+			console.log('i2',i2,i3)
+
+			// 参数传递
+			function j(num){
+				num+=50;
+				return num
+			}
+			var num=10
+			var j2=j(num);
+			console.log('j2',j2)
+			console.log(num)
+
+			// 引用类型传值
+			function die(obj){
+				obj.name="asdasd"
+			}
+			var ha=new Object()
+			die(ha)
+			console.log(ha.name)
+
+			//此时hq1相当于obj，obj.name=hq1.name
+			var hq1=new Object()
+			function hq(obj){
+				obj.name='op';				
+			}
+			hq(hq1)
+			console.log(hq1.name)
+
+			/*
+			function box(obj) {
+				obj.name = 'Lee';
+				var obj = new Object();	//这里的obj与参数的不同			
+				obj.name = 'Mr.';		
+			}
+			*/
+			// 检测数据类型
+			// typeof只能检测基础数据类型 instanceof检测类型，返回true false
+			var box = [1,2,3];
+			console.log(box instanceof Array);	
+
+							
+	 </script>
+</body>
+</html>

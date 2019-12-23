@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	#all{
+		width: 1000px;
+		height: 800px;
+		position: relative;
+		border: 1px solid #000;
+		overflow: hidden;
+	}
+	.xue{
+		width: 30px;height: 30px;
+		background: red;
+		position: absolute;
+		transition:all 0.5s linear; 
+	}
+</style>
+</head>
+<body>
+	<div id="all">
+		
+	</div>
+	<script type="text/javascript">
+		var timer=setInterval(function(){
+			var All=document.getElementById('all')
+			var xue=document.createElement('div')
+			xue.className='xue'
+			All.append(xue)
+			var LEFT=Math.random()*1000
+			
+			if(xue.style.left>1000){
+				xue.style.left=1000-30+'px'
+				xue.style.top='0px';
+			}else{
+				xue.style.left=LEFT+'px';
+				xue.style.top='0px';
+			}
+			
+			var timer1=setInterval(function(){
+				xue.style.top=xue.offsetTop+30+'px';
+			},500)
+		},500)
+	</script>
+</body>
+</html>
