@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<!-- 
+	git 命令    git init 初始化仓库
+	git status 
+	git add .
+	git commit -m "asdasd"
+	git push
+	关联仓库 
+
+	数组排序 数组去重 对象深拷贝 对象潜拷贝 同级字符串中某个字符出现的次数和我之
+	math.rodam()写雪花 js仿苹果菜单
+	弧形导航
+	字符串切割方法:concat、
+	slice:返回2到3之间的值，不包括第三位
+	、substring、
+	substr：substr(2,3)从第二个开始查询3个
+
+-->
+	<!-- 基本包装类型 
+	布尔类型 number类型 string类型
+-->
+<script type="text/javascript">
+		// substring 
+		var a='Madsas 54'
+		console.log(a.substring(2))//dsas 54
+		//只有一个参数的时候会从第零位开始算起到该参数位结束，但是不包括该参数位，如：substring(2)，指的是把0,1截取掉，不会截取第2位
+		// 完整写法
+		var a1='asdada5241asd';
+		console.log('a1',a1.substring(2,3))//截取掉第2位的d，
+
+		// 字面量不具备属性方法，如：
+		/*=-=-=============================-----------------*/
+		var a2='asdsad'
+		a2.name='1264'
+		console.log('a2字符串',a2.name)
+		a2.name=1264
+		console.log('a2字符串',a2.name)
+
+		// 字面量添加属性
+		var a3=122;a3.name=123;console.log('a3数字',a3.name)
+		var a3=122;a3.name='asda';console.log('a3数字',a3.name)
+		// 字符串具备属性和方法，数字不具备会显示undefined
+		/*=-=-=============================-----------------*/
+
+		a2.age=function(){
+			return 100
+		}
+		console.log('a2',a2.age)//undefined
+		console.log('a2',a2)//asdsad
+		console.log('a2',a2.substring(4))//d 不包括第四位
+		//console.log(a2.age())//报错
+
+		// new运算符写法
+		var b =new String(241242)//这不是字符串，是一个对象
+		console.log('b',typeof b)
+		console.log('b',jQuery.type(b))
+		b.name="tian"
+		b.old=function(){
+			return 52
+		}
+		console.log('b',b)
+		console.log(b.substring(2))
+		console.log('b',b.old)
+		console.log('b',b.name)//会将整个函数打印出
+		console.log('b',b.old())
+
+		var c = new Array(['adad',1112,'ada']) 
+		console.log('c',c,'字符串',typeof c)
+
+		// Boolean没有特定的属性或者方法
+		var d = new Boolean('sdsda')
+		console.log('d',d)//true
+		var d1 = new Boolean(0)
+		console.log('d1',d1)//false
+
+		// number类型
+		console.log(Number.MAX_VALUE)//最大数
+		console.log(Number.MIN_VALUE)//最小数
+		console.log(Number.NaN)
+		console.log(Number.prototype)//可以打出所以有属性和方法
+		//toString()将数值转化成字符串
+		var e=24121221;
+		console.log("type",typeof e.toString())
+		  //转换进制
+		console.log(e.toString(2))//按照二进制转换
+		var e1=24121221
+		console.log('e1',e1.toLocaleString())//按照国际计数方法，三位一个逗号24,121,221
+		// 小数点保留
+		var e2=5546.54955454
+		console.log('er',e2.toFixed(2))//保留两位,具有四舍五入的功能
+		// 指数计数法toExponential
+		var e3=102570000;console.log('e3',e3.toExponential(3))
+		var e4=102000000;console.log(e4.toExponential(2))
+		// toPrecision 指数会保留小数点，不传参数则不进行保留小数点，出进去一位就会变成1e+6  传进去2变成1.0e+6
+		var e5=1000000;console.log('e5',e5.toPrecision(3))
+		var e6=1000000;console.log('e6',e6.toPrecision(2))
+		var e7=1000000;console.log('e7',e7.toPrecision(1))
+		var e8=1000000;console.log('e8',e8.toPrecision())
+
+		// string类型包含三个属性和一些可用的内置方法
+		var f='4445a4da4sd4a4ds'
+		console.log("f",f.length)
+
+
+		// 用if判断类型
+		var test=new String();
+
+		if (test.constructor==Array){
+			document.write("This is an Array");
+		}else if (test.constructor==Boolean){
+			document.write("This is a Boolean");
+		}else if (test.constructor==Date){
+			document.write("This is a Date");
+		}else if (test.constructor==String){
+			document.write("This is a String");
+		}
+
+		//prototype
+		// 在原型上添加东西 用prototype来继承属性
+		function f1(name){
+			this.name=name
+		}
+		var bil= new f1("dier")
+		f1.prototype.io='bulo'
+		console.log(bil.io)
+
+		// valueOf返回数组对象的原始值
+		var f2=['ada','asdad','asda']
+		console.log('valueOf',f2.valueOf())
+	</script>
+</body>
+</html>
