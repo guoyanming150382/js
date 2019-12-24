@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 工厂模式 
+	
+	
+	-->
+	<script type="text/javascript">
+		function ceartte(m1,m2){
+			var obj=new Object()//实例化一个对象
+			obj.m1=m1;//增加属性
+			obj.m2=m2;
+			obj.der=function(){
+				return this.m1+"--"+m2
+			}
+			return obj
+		}
+		var p1=ceartte('盖伦','提莫')
+		console.log('p1',p1.m1,typeof p1.m1)
+		console.log('p1',p1.der(),typeof p1.der())
+		var p2=ceartte('盖伦','提莫')
+		console.log('判断',p1.m1==p2.m1)
+		console.log('判断1',p1.der==p2.der)//地址不同所以不等，这是引用类型,引用类型
+		console.log('判断11',p1.der===p2.der)//地址不同所以不等，这是引用类型
+		console.log('判断2',p1.der()==p2.der())//,返回值相同所以相等，类型相等
+		console.log('判断3',p1.der()===p2.der())//返回值相同所以相等，类型相等
+
+		// 工厂模式函数
+		function weiwe(name,age){
+			var obj=new Object()
+			obj.name=name;
+			obj.age=age;
+			obj.tuo=function(){
+				return this.name+"------"+this.age
+			}
+			return obj
+		}
+		var weio1=weiwe(16,56)
+		console.log(weio1.tuo())
+		console.log(weio1.age)
+		var u7=weiwe('asda','asdad')
+		// 缺点无法判断出调用类型
+		console.log(typeof weio1)
+		console.log(typeof u7)
+	</script>
+</body>
+</html>

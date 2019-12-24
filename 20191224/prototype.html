@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function a(m1,m2){
+			this.m1=m1;
+			this.m2=m2;
+		}
+		// 通过原型链添加属性
+		a.prototype={
+			sex:function(){
+				return this.m1+"---"+this.m2
+			}
+		}
+
+		var a1=new a('的吗',96)
+		// 通过__proto__添加属性
+		a1.__proto__.op='提莫'
+		console.log('m1',a1.m1)
+		console.log('m2',a1.m2)
+		console.log('sex',a1.sex())
+		console.log('提莫',a1.__proto__.op)
+		console.log('提莫',a1.op)
+	</script>
+</body>
+</html>

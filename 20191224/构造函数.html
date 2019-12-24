@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 一
+		function bi(name,yue){
+			this.name=name;
+			this.yue=yue;
+			this.op=function(){
+				return this.name+" "+this.yue
+			}
+		}
+		var a1=new bi('do',12)
+		var a3=new bi('do',12)
+		console.log('判断',a1==a3)//两个函数虽然数值相等，但是栈的地址不同，所以false
+		console.log('判断2',a1.op()==a3.op())//返回值相同，引用地址也都相同，都是一个构造函数
+		/*==========--------================*/
+		console.log('判断3',a1.op()===a3.op())//返回true
+		console.log('判断引用',a1.op==a3.op)//引用地址不同
+		/*==========--------================*/
+		var a2=new bi('78','ad')
+		console.log('a1',a1.op())
+		console.log('a2',a2.op())
+		// 构造函数必须加new，否则报错
+		console.log(a1 instanceof bi)//a1隶属于bi
+		// 构造函数与工厂模式区别
+		// 1.构造函数方法没有显示的创建对象(new Object())；
+		// 2.直接将属性和方法赋值给this对象；
+		// 3.没有renturn语句。
+		/* 构造函数执行过程
+		1.当使用了构造函数，并且new 构造函数()，那么就后台执行了new Object()；
+		2.将构造函数的作用域给新对象，(即new Object()创建出的对象)，而函数体内的this就代表new Object()出来的对象。
+		3.执行构造函数内的代码；
+		返回新对象(后台直接返回)*/
+		function gaizi(m1,m2){
+			this.m1=m1;
+			this.m2=m2;
+			this.m3=new Function("return this.m1+''+this.m2")
+		}
+		var gau1=new gaizi(10,20)
+		console.log('m3',gau1.m3)
+		// 二构造函数写在外部
+		function bu1(m1,m2){
+			this.m1=m1;
+			this.m2=m2;
+			this.obj=obj;
+		}
+		function obj(){
+			return this.m1+this.m2
+		}
+
+		var bbb=new bu1(12,56)
+		console.log('外部',bbb.obj())//引用地址仍然一致
+
+		
+	</script>
+</body>
+</html>

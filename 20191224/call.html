@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>call</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 对象冒充
+		window.color='red'
+		document.color='green'
+		var s1={color:'pink'}
+		function poi(){
+			console.log(this.color)
+		}//这个函数是由window调用的所以color=red
+		// 用call改变poi的指向
+		poi.call()//默认指向，不改变原来的poi
+		poi.call(window)//指向window
+		poi.call(document)//document
+		poi.call(s1)//指向s1
+		poi.call(this)//指向window
+
+		var a1={
+			word:'poi',
+			run:function(){
+				return console.log(this.word)
+			}
+		}
+		a1.run()
+		var a2={
+			word:'hello word',
+			bier:function(m1,m2){
+				console.log(this.word+" "+m1+"+++"+m2)
+			}
+		}
+		var a3={
+			port:function(m1,m2){
+				this.m1=m1;this.m2=m2;
+				console.log(this.m1+m2+this.word)
+			}
+		}
+		a2.bier(88)
+		a1.run.call(a2)//改变指向到a2 hello word
+		a2.bier.call(a1,'asdad',122)
+		a3.port.call(a2,451,"098")
+		// apply,call可以找最大最小值,参数确定用call，不确定用apply，工厂模式解决了重复实例化的问题，但还有一个问题，那就是识别问题，因为根本无法搞清楚他们到底是哪个对象的实例
+
+
+		
+	</script>
+</body>
+</html>

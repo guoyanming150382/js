@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 原型 可以让所有对象实例共享它所包含的属性和方法
+		function ui(name,old){
+
+		}
+		ui.prototype.name='lio';
+		ui.prototype.old=123;
+		ui.prototype.ui=function(){
+			return this.name+this.old
+		}
+		var p1=new ui(1,20)
+		console.log('p1',p1.ui())
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 对象冒充
+		var a1={
+			word:'this focs',
+			world:function(b1,b2){
+				console.log(this.word+b1+" "+b2)
+			}
+		}
+		var a2={
+			word:1234564,
+			poi:function(m1,m2){
+				console.log(this.word+" "+m1+"asdad"+m2)
+			}
+		}
+		a1.world.apply(a2,['提莫','盖伦','赵信'])
+	</script>
+</body>
+</html>
