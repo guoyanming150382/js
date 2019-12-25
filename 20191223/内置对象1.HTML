@@ -8,6 +8,60 @@
 	<!-- 内置对象
 	global  无法证明存在，不存在global方法
 	//李LEE  会被转换成编码
+	global对象：不属于任何其他对象的属性和方法，都属于它的属性和方法。
+	
 	 -->
+	 <script type="text/javascript">
+	 	// 对链接进行编码
+	 	var a='http://www.w3school.com.cn'
+	 	//1.URL编码 encodeURI()不会对本身属于URI的特殊字符进行编码，例如冒号、正斜杠、问号和#号encodeURL('http://www.w3school.com.cn'))
+	 	// console.log('a',encodeURL(a))//encodeURIComponent()则会对它发现的任何非标准字符进行编码
+	 	//decodeURI()和decodeURI()//可以用来解码
+
+	 	//eval()方法  方法主要担当一个字符串解析器的作用，他只接受一个参数，而这个参数就是要执行的JavaScript代码的字符串。
+
+	 	eval('var a=123')//解析字符串代码
+	 	console.log('a',a)
+
+	 	eval('12+96')
+	 	console.log(eval('12+96'))
+
+	 	var b=eval('12+96')
+	 	console.log('b',b)
+
+	 	eval('function uio(){return 123}')
+	 	console.log('函数',uio())
+
+	 	// global对象属性 Global对象包含了一些属性：undefined、NaN、Object、Array、Function等等。
+
+	 	//window能实现全局访问
+	 	console.log(window.Array())
+	 	// Math
+	 	//静态属性
+	 	console.log('E',Math.E)
+	 	console.log('LN10',Math.LN10)
+	 	console.log('LN2',Math.LN2)
+	 	console.log('LOG2E',Math.LOG2E)
+	 	// π值
+	 	console.log('π',Math.PI)
+	 	// 平方根
+	 	console.log('1/2',Math.SQRT1_2)
+	 	console.log('2',Math.SQRT2)
+	 	// 最大值 最小值
+	 	console.log('c',Math.min(1,2,3,6,4,5,8,4,8))
+	 	console.log('c',Math.max(1,2,3,6,4,5,8,4,8))
+	 	//随机数
+	 	console.log('随机',Math.ceil(Math.random()*10))
+	 	//封装随机数
+	 	function getRandomNumberByRange(start, end) {
+		    return Math.floor(Math.random() * (end - start) + start)
+		}
+		console.log('0-100',getRandomNumberByRange(0,100))
+		console.log('0-1',Math.random())
+		// 返回绝对值
+		console.log('绝对值',Math.abs(1-10))//9
+		console.log('次数',Math.pow(2,3))//8
+		
+	 </script>
 </body>
 </html>

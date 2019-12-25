@@ -17,6 +17,49 @@
 		}
 		var p1=new ui(1,20)
 		console.log('p1',p1.ui())
+
+		ui.prototype.name='提莫';
+		ui.__proto__.sex="拉克丝"
+
+		console.log('changge',p1.name)
+		// console.log('changge1',ui.__proto__.sex)
+		console.log('changge1',ui.sex)
+		//判断属性是在构造函数的实例里，还是在原型里
+		console.log(p1.prototype==p1.__proto__)
+		//判断一个对象是否指向了该构造函数的原型对象
+		// __proto__属性是实例指向原型对象的一个指针，它的作用就是指向构造函数的原型属性constructor。通过这两个属性，就可以访问到原型里的属性和方法了。(ie识别不了__proto__，其他均可以)
+		console.log('__proto__',__proto__)
+
+
+		function po(m1,m2){
+			this.m1=m1;
+			this.m2=m2;
+			this.qo=function(){
+				return this.m1+"==="+this.m2
+			}
+		}
+		var p1=new po(1,2);
+		console.log('盘',p1.m1)
+		console.log('盘',p1.qo())
+
+		po.prototype.age='迪尔'
+		console.log('年龄',p1.age)
+		p1.m1='jack';
+		var p2=new po()
+		console.log('p2',p2.m1)
+		console.log(p1.m1)
+
+		// 删除属性
+		delete p1.m1;
+		console.log('delete',p1.m1)
+
+		//判断属性是在构造函数的实例里，还是在原型里，如果在实例里就是返回true
+		console.log('///',p1.hasOwnProperty('m2')
+
+		//in 操作符
+		// n操作符会在通过对象能够访问给定属性时返回true，无论该属性存在于实例中还是原型中。
+
+
 	</script>
 </body>
 </html>
