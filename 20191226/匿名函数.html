@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 匿名函数自执行 
+	匿名函数就是没有名字的函数，闭包是可访问一个函数作用域里变量的函数。
+	-->
+	<script type="text/javascript">
+	//匿名函数
+	(function(){
+		console.log('ads',456)
+	})()
+
+	var a=function(){
+		console.log('自执行',45555)
+	}()
+
+	// 匿名函数的值可以赋给变量
+	var b=function(a,b){
+		return a+b
+	}
+	console.log('b',b(1,2))
+
+	// 函数中的匿名函数
+	function d(){
+		return function(){
+			return 3+9
+		}
+	}
+	console.log(d())//打出内部函数
+	console.log(d()())//12
+
+	
+	// 闭包
+		//直接调用了匿名函数的返回值
+		function e(){
+			var user ='lier'
+			return function(){
+				return user
+			}
+		}
+		console.log('e',e()())
+	//闭包有一个优点，也是它的缺点：就是可以把局部变量驻留在内存中，可以避免使用全局变量。(全局变量污染导致应用程序不可预测性，每个模块都可调用必将引来灾难，所以推荐使用私有的，封装的局部变量)。
+	//累加
+	//全局变量累加
+	var e1=56
+	function e2(){
+		e1++
+	}
+	e2()
+	console.log('e1',e1)
+	e2()
+	console.log('e1',e1)//增加执行次数可以累加
+	//局部变量
+	function e2(){
+		var e2=50
+		e2++
+		return e2
+	}
+	console.log('e2',e2())
+	console.log('e2',e2())//执行次数增加，无法实现累加
+
+
+	function c(){
+		var to='zhang';
+		function c1(){
+			return to
+		}
+		return c1
+	}
+	console.log(c())
+	//闭包 会将值存储在函数内，再次调用函数会累加
+	// PS：由于闭包里作用域返回的局部变量资源不会被立刻销毁回收，所以可能会占用更多的内存。过度使用闭包会导致性能下降，建议在非常有必要的时候才使用闭包。
+
+	</script>
+</body>
+</html>

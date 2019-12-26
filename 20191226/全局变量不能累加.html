@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var age=100;
+		function op(){
+			age++
+		}
+		op()
+		console.log(age)
+		op()
+		console.log(age)
+		/*1.全局变量和局部变量的区别
+		  2.局部变量无法累加
+		*/
+
+
+
+		function bb(){
+			var uu=100
+			return function(){
+				uu++
+				return uu
+			}
+		}
+		var res =bb()
+		console.log('闭包可以存储函数上次执行结果',res())//101
+		console.log('第二次',res())//102
+		console.log('第三次',res())//103
+	</script>
+</body>
+</html>
