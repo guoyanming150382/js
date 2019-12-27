@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去重</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function unique(arr){            
+			for(var i=0;i<arr.length;i++){
+				for(var k=i+1;k<arr.length;k++){
+					if(arr[i]==arr[k]){
+						arr.splice(k,1)
+					}
+				}
+			}
+			return arr
+		}
+		console.log(unique([1,1,2,3,5,3,1,5,6,7,4]))
+
+
+		var x=prompt('请输入1-5')
+		switch(x){
+			case '1':alert("1")
+			case '2':alert("2")
+			case '3':alert("3")
+			case '4':alert("4")
+			case '5':alert("5")
+			default:alert('1')
+		}
+	</script>
+</body>
+</html>

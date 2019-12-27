@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<script type="text/javascript">
+		var oli=document.getElementsByTagName('li')
+		for(var i=0;i<oli.length;i++){
+			
+			oli[i].onclick=function(){
+				console.log($(this).index())
+			}
+			
+		}
+	</script>
+</body>
+</html>
