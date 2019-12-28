@@ -6,7 +6,14 @@
 </head>
 <body>
 	<input type="text" name="user">
-	<div id="q7" class="p1">56</div>
+	<div id="q7" class="p1" bb="789">56</div>
+	<div id="fop" style="color: red">p1</div>
+	<p class="p1" id="p2">56</p>
+	<ul id="yui">
+		<li>1</li>
+		<li>1</li>
+		<li>1</li>
+	</ul>
 	<script type="text/javascript">
 
 		var date=new Date()
@@ -16,6 +23,39 @@
 	// 属性节点
 	// var b=a.getAttribute('id')
 	// console.log('b',b)
+	// 获取元素节点标签名
+	var b=document.getElementById('q7').tagName
+	console.log('b',b)
+
+	// innerHTML
+	var c=document.getElementById('fop')
+	c.onclick=function(){
+		c.innerHTML="叫花鸡"
+	}
+	var c1=document.getElementById('fop').style.backgroundColor='blue'
+	var c3=document.getElementById('fop').className='qwe'
+
+	// 自定义属性
+	var c4=document.getElementById('q7').bb
+	console.log('c4',c4)
+	var c5=document.getElementById('q7').getAttribute('bb')
+	console.log('c5',c5)
+	
+	var c6=document.getElementById('q7').setAttribute('ddd','d1')
+	// removeAttribute移除属性
+	document.getElementById('q7').removeAttribute('class')
+	// dom节点 p为例子
+	// 文本节点 56  属性节点 p1 元素节点 p
+	var d1=document.getElementById('p2').nodeType
+	var d2=document.getElementById('p2').nodeName
+	var d3=document.getElementById('p2').nodeValue
+	console.log('d1',d1)
+	console.log('d2',d2)
+	console.log('d3',d3)
+	//childNodes 获取一个元素节点的所有子节点
+	console.log('childNodes',document.getElementById('yui').childNodes.length)
+	console.log('childNodes1',document.getElementById('yui').childNodes[0])
+
 	</script>
 </body>
 </html>
