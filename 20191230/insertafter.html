@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+	</script>
+</head>
+<body>
+	<div class="op">阿达</div>
+	<ul id="io">
+		<li>1</li>
+		<li>2</li>
+	</ul>
+	<script type="text/javascript">
+		var oP=document.getElementsByClassName('op');
+		var oi=document.createElement('p')
+		var texnode=document.createTextNode('布鲁斯')
+		oi.appendChild(texnode)
+		$(oi).insertAfter('div')
+
+		var oo=document.createElement('div')
+		var oonode=document.createTextNode("i am the ")
+		oo.appendChild(oonode)
+
+		var oul=document.getElementById('io')
+		var oli=document.getElementsByTagName('li')
+		oul.insertBefore(oo,oli[1])
+		//父级  要被插入的  插入的位置
+
+		// nextElementSibling
+		var odid=oli[0].nextElementSibling;
+		console.log('adad',odid)
+
+		var uiop=document.createElement('h1')
+		var oiu=document.createTextNode("嗲嗲");
+		uiop.appendChild(oiu)
+
+		Element.prototype.insertAfter = function (targetNode, afterNode) {  //afterNode要插入那个元素下面  targetNode被插入的元素
+			var before = afterNode.nextElementSibling; 
+			if(before == null) { 
+				console.log('123123',this)
+				this.appendChild(targetNode);
+			}else {
+				this.insertBefore(targetNode, before);
+			}
+		};
+		oul.insertAfter(uiop,oli[1]);
+	</script>
+</body>
+</html>

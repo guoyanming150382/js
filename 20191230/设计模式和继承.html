@@ -1,1 +1,74 @@
-设计模式和继承.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 继承的几种方式 
+	依靠原型链完成继承
+	构造函数+对象冒充继承
+	构造函数+原型继承
+	原型式继承
+	-->
+	<script type="text/javascript">
+		// 原型链继承
+		function a(){
+			this.age=90
+		}
+		function b(){
+			this.name='asad'
+		}
+		a.prototype=new b()
+
+		var yu=new a();
+		console.log(yu.name)
+		// 构造函数+对象冒充继承
+		// 
+		function bxo(){
+			this.name="qweqw"
+			this.age=99
+		}
+		function bxo1(){
+			bxo.call(this,name)
+		}
+		function bcv(){
+			bxo.apply(this,[name])
+		}
+		var axio=new bxo1()
+		var axio1=new bcv()
+		console.log("2",axio.name)
+		console.log("2",axio1.age)
+		// 构造函数加原型
+		function cq(age){
+			this.name=12
+			this.age=age
+		}
+		cq.prototype.run=function(){
+			return this.name+this.age
+		}
+		function cw(age){
+			cq.call(this,age)
+		}
+
+		cw.prototype=new cq()
+		var dek=new cw(12)
+		console.log('3',dek.run())
+		//原型继承
+		function qwer(o){
+			function F(){}
+			F.prototype=o
+			return new F()
+		}
+
+		var ooip={
+			name:'大二',
+			age:12
+		}
+		var p1=new qwer(ooip)
+		console.log(p1.name)
+		p1.name='杀菌灯'
+		console.log(p1.name)
+	</script>
+</body>
+</html>
