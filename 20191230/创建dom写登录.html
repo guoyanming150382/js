@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// form
+		var oForm=document.createElement('form');
+		document.body.appendChild(oForm)
+		oForm.style.border="2px solid #000"
+		oForm.style.width="350px"
+		oForm.style.padding="0 0 0 30px"
+		oForm.style.margin="50px auto"
+		//姓名
+		var oP=document.createElement('p')
+		oForm.appendChild(oP)
+
+		var oLabel=document.createElement('label')
+		oP.appendChild(oLabel);
+
+		var oSpan=document.createElement('span')
+		oLabel.appendChild(oSpan)
+		oLabel.setAttribute('for','username')
+		oSpan.innerHTML="名字："
+
+		var oInp=document.createElement('input')
+		oLabel.appendChild(oInp)
+
+		oInp.setAttribute('type','text')
+		oInp.setAttribute('id','username')
+		// 密码
+		var oP1=document.createElement('p')
+		oForm.appendChild(oP1)
+
+		var oLabel1=document.createElement('label')
+		oP1.appendChild(oLabel1);
+
+		var oSpan1=document.createElement('span')
+		oLabel1.appendChild(oSpan1)
+		oLabel1.setAttribute('for','pwd')
+		oSpan1.innerHTML="密码："
+
+		var oInp1=document.createElement('input')
+		oLabel1.appendChild(oInp1)
+
+		oInp1.setAttribute('type','text')
+		oInp1.setAttribute('id','pwd')
+		// 性别 男
+
+		var oP2=document.createElement('p')
+		oForm.appendChild(oP2)
+
+		var oLabel2=document.createElement('label')
+		oP2.appendChild(oLabel2);
+
+		var oSpan2=document.createElement('span')
+		oLabel2.appendChild(oSpan2)
+		oLabel2.setAttribute('for','nan')
+		oSpan2.innerHTML="男："
+
+		var oInp2=document.createElement('input')
+		oLabel2.appendChild(oInp2)
+
+		oInp2.setAttribute('type','radio')
+		oInp2.setAttribute('id','nan')
+		oInp2.setAttribute('name','radio')
+		// 女
+		var oLabel2=document.createElement('label')
+		oP2.appendChild(oLabel2);
+
+		var oSpan2=document.createElement('span')
+		oLabel2.appendChild(oSpan2)
+		oLabel2.setAttribute('for','nv')
+		oSpan2.innerHTML="女："
+
+		var oInp2=document.createElement('input')
+		oLabel2.appendChild(oInp2)
+
+
+		oInp2.setAttribute('type','radio')
+		oInp2.setAttribute('id','nv')
+		oInp2.setAttribute('name','radio')
+		oInp2.setAttribute('checked','checked')
+		// 复选
+		var oP3=document.createElement('p')
+		oForm.appendChild(oP3)
+		oP3.innerHTML="兴趣爱好："
+		
+		var oLabel3=document.createElement('label')
+		oP3.appendChild(oLabel3);
+		var oSpan3=document.createElement('span')
+		oLabel3.appendChild(oSpan3)
+		oLabel3.setAttribute('for','basket')
+		oSpan3.innerHTML="篮球："
+		var oInp3=document.createElement('input')
+		oLabel3.appendChild(oInp3)
+		oInp3.setAttribute('type','checkbox')
+		oInp3.setAttribute('id','basket')
+
+		var oLabel4=document.createElement('label')
+		oP3.appendChild(oLabel4);
+		var oSpan4=document.createElement('span')
+		oLabel4.appendChild(oSpan4)
+		oLabel4.setAttribute('for','soor')
+		oSpan4.innerHTML="足球："
+		var oInp4=document.createElement('input')
+		oLabel4.appendChild(oInp4)
+		oInp4.setAttribute('type','checkbox')
+		oInp4.setAttribute('id','soor')
+
+		var oLabel5=document.createElement('label')
+		oP3.appendChild(oLabel5);
+		var oSpan5=document.createElement('span')
+		oLabel5.appendChild(oSpan5)
+		oLabel5.setAttribute('for','qo')
+		oSpan5.innerHTML="气球："
+		var oInp5=document.createElement('input')
+		oLabel5.appendChild(oInp5)
+		oInp5.setAttribute('type','checkbox')
+		oInp5.setAttribute('id','qo')
+		// 提交
+		var oP4=document.createElement('p')
+
+		oForm.appendChild(oP4)
+		var oBTN1=document.createElement('input')
+		oBTN1.setAttribute('value','提交')
+		oBTN1.setAttribute('type','button')
+		oP4.appendChild(oBTN1)
+
+		var oBTN2=document.createElement('input')
+		oBTN2.setAttribute('value','重置')
+		oBTN2.setAttribute('type','reset')
+		oBTN2.style.margin='0 0 0 100px'
+		oP4.appendChild(oBTN2)
+
+	</script>
+</body>
+</html>

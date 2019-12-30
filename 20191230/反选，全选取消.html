@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="checkbox" checked>男<br>
+	<input type="checkbox" checked>女<br>
+	<input type="checkbox" checked>女<br>
+	<input type="checkbox">女<br>
+	<input type="checkbox">女<br>
+	<input type="checkbox">女<br>
+	<input type="checkbox">女<br>
+	<input type="checkbox">女<br>
+	<input type="checkbox">女<br>
+	<button id="fan">反选</button>
+	<button id="all">全选</button>
+	<button id="off">全不选</button>
+	<script type="text/javascript">
+		var oInp=document.getElementsByTagName('input')
+		var oFan=document.getElementById('fan')
+		var oAll=document.getElementById('all')
+		var oOff=document.getElementById('off')
+		oFan.onclick=function(){
+			for(var i=0;i<oInp.length;i++){
+				if(oInp[i].checked==false){
+					oInp[i].checked=true
+				}else{
+					oInp[i].checked=false
+				}
+			}
+		}
+		oAll.onclick=function(){
+			for(var i=0;i<oInp.length;i++){
+				oInp[i].checked=true;
+			}
+		}
+		oOff.onclick=function(){
+			for(var i=0;i<oInp.length;i++){
+				oInp[i].checked=false;
+			}
+		}
+	</script>
+</body>
+</html>

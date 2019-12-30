@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="p1">
+		<h1>题目</h1>
+		<p>文章</p>
+		<content>内容</content>
+	</div>
+	<div id="p2">
+		<h1>目标</h1>
+		<p>内容</p>
+	</div>
+	<script type="text/javascript">
+		// 空节点的特性：文本节点的nodeType值是3，文本节点是空
+		var oDiv=document.getElementById('p1').childNodes;
+		// childNodes元素的所有子节点集合
+		console.log(oDiv)
+		// 忽略空白节点
+		function qu(m){
+		var arr=[]
+			for(var i=0;i<m.length;i++){
+				if(m[i].nodeType==3 && /^\s+$/.test(m[i].nodeValue)){continue}else{
+					arr.push(m[i])
+				}
+			}
+			return arr
+		}
+		console.log(qu(oDiv))
+		// 删除空白节点
+		var ODIn=document.getElementById('p2').childNodes;
+		console.log(ODIn)
+		function delle(m){
+			var arr1=[]
+			for(var i=0;i<m.length;i++){
+				if(m[i].nodeType==3 && /^\s+$/.test(m[i].nodeValue)){
+					m[i].parentNode.removeChild(m[i])
+					arr1.push(m[i])
+				}
+			}
+			return arr1
+		}
+		console.log(delle(ODIn))
+
+	</script>
+</body>
+</html>
