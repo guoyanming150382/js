@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#p1{
+			width: 100px;height: 100px;
+			background: red;
+			position: absolute;
+			left: 0;top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="p1"></div>
+	<script type="text/javascript">
+		var oD=document.getElementById('p1')
+
+		oD.onmousedown=function(e){
+			var mouseX=e.clientX-oD.offsetLeft;
+			var mouseY=e.clientY-oD.offsetTop;
+
+			document.onmousemove=function(e){
+				oD.style.left=e.clientX-mouseX+'px'
+				oD.style.top=e.clientY-mouseY+'px'
+			}
+			document.onmouseup=function(){
+				document.onmousemove=null
+				document.onmouseup=null
+			}
+		}
+	</script>
+</body>
+</html>

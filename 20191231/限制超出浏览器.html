@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#p1{
+			width: 100px;height: 100px;
+			background: red;
+			position: absolute;
+			left: 0;right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="p1"></div>
+	<script type="text/javascript">
+		// 获取当前实时的窗口大小
+		// document.body.onresize=function(){
+		// 	console.log(oWindow)
+		// }
+
+		var oD=document.getElementById('p1')
+		// var oWindow=document.body.offsetWidth
+		// console.log(oWindow)//获取当前的窗口大小
+		// window.innerWidth窗口宽度
+		// window.innerHeight窗口高度
+		oD.onmousedown=function(e){
+			console.log(111)
+			var mouseX=e.clientX-oD.offsetLeft;
+			var mouseY=e.clientY-oD.offsetTop;
+			
+
+			var overheight=window.innerHeight-oD.offsetHeight
+			var overwidth=window.innerWidth-oD.offsetWidth
+			document.onmousemove=function(e){
+				// 如果x轴上超出距离
+			var ileft=e.clientX-mouseX
+			var itop=e.clientY-mouseY
+				if(ileft<0){
+					ileft=0;
+				}else if(ileft>overwidth){
+					ileft=overwidth
+				}
+
+				if(itop<0){
+					itop=0
+				}else if(itop>overheight){
+					itop=overheight
+				}
+
+				oD.style.left=ileft+'px'
+				oD.style.top=itop+'px'
+			}
+			document.onmouseup=function(){
+				document.onmousemove=null
+				document.onmousedown=null
+			}
+		}
+
+	</script>
+</body>
+</html>
