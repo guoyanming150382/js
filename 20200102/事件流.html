@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+		相同属性的事件会被最后面的覆盖，
+		addEventListener 事件监听
+
+		document.addEventListener('click',function(e){
+		事件流:默认情况下是冒泡，从内到外 true是捕获
+		事件流：捕获 从外到内  false是冒泡  阻止冒泡：e.stopPropagation()
+		e.stopPropagation()写到哪里，就会阻止到哪里
+	},false)
+
+	事件委托：
+	 -->
+	 <ul>
+	 	<li>1</li>
+	 	<li>2</li>
+	 	<li>3</li>
+	 </ul>
+	 <script type="text/javascript">
+	 	var oul=document.getElementsByTagName('ul')
+	 	var oli=document.getElementsByTagName('li')
+	 	// 一
+	 	// for(let i=0;i<oli.length;i++){
+	 	// 	oli[i].onclick=function(){
+	 	// 		console.log(oli[i].innerHTML)
+	 	// 	}
+	 	// }
+	 	// 二
+	 	// for(var i=0;i<oli.length;i++){
+	 	// 	oli[i].onclick=function(){
+	 	// 		console.log(this.innerHTML)
+	 	// 	}
+	 	// }
+	 	// 三
+
+	 	for(var i=0;i<oli.length;i++){
+	 		oli[i].onclick=(function(num){
+	 			return oli[num].innerHTML
+	 		})(i)
+	 	}
+	 	// 四
+	 	for(var i=0;i<oli.length;i++){
+	 		oli[i].onclick=(function(num){
+	 			return function(){
+	 				console.log(num)
+	 			}
+	 		})(i)
+	 	}
+	 </script>
+
+	 <!-- 事件委托 事件代理 解决性能问题
+		
+	 -->
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{padding: 0;margin: 0}
+
+		div{
+			position: absolute;
+		}
+		.redd{
+			width: 50px;height: 50px;
+			background: red;position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="redd" id="yu"></div>
+	<script type="text/javascript">
+		var oyi=document.getElementById('yu')
+		var oW=window.innerWidth-oyi.offsetWidth
+		var oH=window.innerHeight-oyi.offsetHeight
+
+		console.log('width',oW)
+		console.log('height',oH)
+
+
+		// 随机方块
+		var son=document.createElement('div')
+		son.style.width=50+"px";
+		son.style.height=50+"px";
+		document.body.appendChild(son)
+		son.style.background="pink"
+
+		var oWw=Math.floor(Math.random()*oW)
+		console.log('随机',oWw)
+		var oHw=Math.floor(Math.random()*oH)
+		console.log('随机',oHw)
+
+		son.style.top=oWw+'px'
+		son.style.right=oHw+'px'
+
+
+		document.onkeydown=function(e){
+				var keyCode=e.keyCode
+				
+			// console.log(e.keyCode)
+			switch(keyCode){
+				case 38:
+					if(oyi.offsetTop<=0){
+						oyi.style.top=0
+					}else{
+						oyi.style.top=oyi.offsetTop-10+'px'
+					}
+					break;
+				case 37:
+					if(oyi.offsetLeft<=0){
+						oyi.style.left=0
+					}else{
+						oyi.style.left=oyi.offsetLeft-10+'px'
+					}
+				break;
+				case 39:
+					if(oyi.offsetLeft>=oW){
+						oyi.offsetLeft=oW+'px'
+					}else{
+						oyi.style.left=oyi.offsetLeft+10+'px'
+					}
+				break;
+				case 40:
+					if(oyi.offsetTop>=oH){
+						oyi.style.top=oH+'px'
+					}else{
+						oyi.style.top=oyi.offsetTop+10+'px'						
+					}
+				break;
+			}
+			// 变长
+			var Bw=son.offsetLeft-oyi.offsetLeft
+				var Bh=son.offsetTop-oyi.offsetTop
+				console.log('1',son.offsetLeft)
+				console.log('2',son.offsetTop)
+				console.log('11',oyi.offsetLeft)
+				console.log('22',oyi.offsetTop)
+			if(	Math.abs(Bw)<=50 && Math.abs(Bh)<=50){
+				oyi.style.width=100+"px"
+				son.style.display="none"
+			}
+		}
+
+		
+		
+	</script>
+</body>
+</html>
