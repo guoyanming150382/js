@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 匿名函数自执行需要分号隔开
+		(function(){
+			var po="asdad"
+			box=function(){
+				console.log(po)
+				this.name='爱仕达多'
+			}
+		})()
+		// box()
+		box.prototype.age=16
+		var ai=new box()
+		console.log('name',ai.name)
+		console.log('age',ai.age)
+	</script>
+</body>
+</html>
