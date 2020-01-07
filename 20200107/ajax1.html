@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var xhr=new XMLHttpRequest()
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					var result =JSON.parse(xhr.responseText)
+					console.log('ss',result)
+				}
+			}
+		}
+		xhr.open('post','http://127.0.0.1:3000/po',true)
+		// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')//向后端传输数据必须的内容
+	 		xhr.send(null)
+	</script>
+</body>
+</html>

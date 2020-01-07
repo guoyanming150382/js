@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+		JSON的语法可以表示三种类型的值：
+		1.简单值：可以在JSON中表示字符串、数值、布尔值和null。但JSON不支持JavaScript中的特殊值undefined。
+		2.对象：顾名思义。
+		3.数组：顾名思义
+	 -->
+	<script type="text/javascript">
+		// json是一种数据形式，是个对象：
+		//const 定义的是常量，一旦定义，就避免再发生变化
+
+		var a=[{a:"ku",b:"asda"}]
+		console.log(a)
+		var b=JSON.stringify(a)
+		console.log(b)
+		console.log(typeof JSON.stringify(b))
+
+		// JSON.stringify过滤结果，保留锁紧,第一个参数：将哪些数据过滤出来，如果该对象中没有，就会是一个空对象，第二个保留缩进
+		var box = [
+			{name : 'a', age : 1, height : 177},
+			{ age : 2, height : 188},
+			{name : 'c', age : 2, height : 188},
+			{name : 'd', age : 2, height : 188},
+			{name : 'e', age : 2, height : 188},
+			];
+		var json = JSON.stringify(box, ['name'],1);
+		console.log(json);	
+		// 利用函数过滤
+		var box1 = [
+			{name : 'a', age : 1, height : 177},
+			{ age : 2, height : 188},
+			{name : 'c', age : 2, height : 188},
+			{name : 'd', age : 2, height : 188},
+			{name : 'e', age : 2, height : 188},
+			];
+
+		var bbu=JSON.stringify(box1,function(key,value){
+			switch(key){
+				case 'name':
+					return 'mr'+ value;
+				case 'age':
+					return value+'岁';
+				default:
+					return value
+			}
+		},2)
+		console.log('asda',bbu)
+	</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<!-- 
+		响应头：
+		请求头：
+	 -->
+	 <div id="sky">
+	 </div>
+	 <button id="btn">点1</button>
+	 <button id="btn1">点2</button>
+	 <script type="text/javascript">
+	 	var oBtn=document.getElementById('btn')
+	 	var oBtn1=document.getElementById('btn1')
+	 	var oSky=document.getElementById('sky')
+
+	 	var xhr=new XMLHttpRequest()
+	 	// console.log(xhr)
+	 	
+	 	xhr.onreadystatechange=function(){
+	 		if(xhr.readyState == 4 ){
+	 			if(xhr.status == 200){
+	 				console.log(xhr.responseText)
+	 				console.log(typeof xhr.responseText)
+	 				var result=JSON.parse(xhr.responseText)
+	 				console.log(result)
+	 				var all=$('<ul></ul>');
+	 				for(var i=0;i<result.data.length;i++){
+	 					all.append('<li>'+result.data[i].name+'的年龄是'+result.data[i].old+'<dl></dl></li>')
+	 					for(var k=0;k<result.data[i].idmesage.length;k++){
+	 						all.find('li dl').append('<h5>'+result.data[i].idmesage[k].funy+'加上'+result.data[i].idmesage[k].like+'加上'+result.data[i].idmesage[k].hobby+'</h5>')
+	 					}
+	 				}
+	 				$('#sky').append(all)
+
+	 			}else {
+	 				console.log('数据返回失败！状态代码：' + xhr.status + '状态信息：'+ xhr.statusText)
+	 			}
+	 		}
+	 	}
+	 	xhr.open('get','http://127.0.0.1:3000/list',true)
+	 	// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')//post传输时候使用
+	 	xhr.send(null)
+
+	 	oBtn1.onclick=function(){
+	 		var xhr=new XMLHttpRequest()
+	 		xhr.onreadystatechange=function(){
+	 			if(xhr.readyState == 4){
+	 				if(xhr.status==200){
+	 					var result=JSON.parse(xhr.responseText)
+	 					console.log('post',result)
+	 				}else{
+	 					console.log('数据返回失败！状态代码：' + xhr.status + '状态信息：'+ xhr.statusText)
+	 				}
+	 			}
+	 		}
+	 		xhr.open('post','http://127.0.0.1:3000/po',true)
+	 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')//向后端传输数据必须的内容
+	 		xhr.send('name=艾克&old=比尔')
+	 	}
+	 </script>
+</body>
+</html>
