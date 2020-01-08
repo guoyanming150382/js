@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="btn">
+		78驱蚊器
+		<button>失误</button>
+	</div>
+	<script type="text/javascript">
+		// currentTarget 指向的是监听器直接绑定的那个元素，而 target 指向的是我们点击的那个元素，目标元素。
+		// 有了 target 和 currentTarget 这两个属性，我们可以在事件触发的时候更简单地操作触发事件的 DOM元素和绑定监听器的 DOM 元素。
+		// 防抖（滚动条） 和节流（搜索提示）
+		document.getElementById('btn').addEventListener('click', function(e) {
+		  console.log('cu',e.currentTarget);  
+		  console.log('tar',e.target);
+		  //button并没有设置事件，但是用e.target可以找到目标函数，能执行事件1	
+		})
+		// 匿名函数用法  事件触发 函数自执行 当参数时候(回调函数)
+
+		// 原型 原型链
+		// 原型只有函数对象才有 prototype------- constructor---》box
+		function box(){}
+		// box.prototype.constructor==box
+		var b=new box()
+		//验证原型 b.constructor==box   b.__proto__==box.prototype   box.prototype.__proto__==Object.prototype    Object.prototype.__proto__==null
+
+		// 静态属性  静态属性存在于对象中 如Math.PI  常量，自己命名添加的
+		// 内置对象 global Math
+
+
+		// 404 找不到 500服务器问题  304 去浏览器缓存拿数据 403权限问题
+	</script>
+</body>
+</html>
