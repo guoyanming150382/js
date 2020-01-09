@@ -23,6 +23,12 @@
 		<input type="text" id="user">:姓名
 		<input type="password">:年龄
 		<input type="reset" value="重置" id="btu">
+		<input type="text" id="seke" value="adad">
+		<select>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
 	</form>
 	<div class="top"></div>
 	<script type="text/javascript">
@@ -50,9 +56,39 @@
 		}
 		//===============================
 		// 2.脚本模式执行函数
-		oTop.onclick=function(){
-			oTop.style.background="blue"
-		}
+		// oTop.onclick=function(){
+		// 	oTop.style.background="blue"
+		// }
+		// 键盘事件
+		// document.onkeydown=function(e){
+		// 	console.log(e.keyCode)
+		// }
+		// 持续键值触发
+		// document.onkeypress=function(e){
+		// 	console.log(e.keyCode)
+		// }
+
+		// keyup：当用户释放键盘上的键触发。
+			// document.onkeyup = function () {
+			// 	console.log('Lee');
+			// };	
+			// window.onload：当页面完全加载后在window上面触发，或当框架集加载完毕后在框架集上触发。
+			// window.onunload：当页面完全卸载后在window上面触发，或当框架集卸载后在框架集上触发。
+
+			//在文本被选中时候触发
+			var opp=document.getElementById('seke')
+			// opp.onselect=function(){
+			// 	console.log("opp",opp.value)
+			// }
+
+			// opp.onchange =function(){
+			// 	opp.value="asadadasd"
+			// }
+
+	// 		opp.onfocus = function () {
+	// 	alert('Lee');
+	// };
+
 	</script>
 </body>
 </html>
