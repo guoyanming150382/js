@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./jquery.js"></script>
+</head>
+<body>
+	<div class="yu">点</div>
+	<script type="text/javascript" src="./jquery.cookie.js"></script> 
+	<script> 
+		　　$.cookie("a","12"); 
+		$('.yu').click(function(event) {
+			$.cookie('the_cookie', 'the_value', { expires: 7 });
+		});
+			
+	</script>
+</body>
+</html>

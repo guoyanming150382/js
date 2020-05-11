@@ -66,3 +66,15 @@
 	 </script>
 </body>
 </html>
+<script>
+	str=''
+	for(var i=0;i<first.length;i++){
+		str+="<li><h3>"+first[i].title+"</h3><p>"
+		for(var k=0;k<first[i].data;k++){
+			str+="<span>"+first[i].data[k].name+"</span>"
+		}
+	}
+
+	str+="</p></li>"
+	$("ul").html(str)
+</script>

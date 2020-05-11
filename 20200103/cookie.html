@@ -1,22 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<!-- 浏览器是无状态，无连接的，所以网站无法知道你是谁的 
-	鉴于这种情况 需要一种存储手段来分清用户是谁 
-	cookie由 名、值组成  
-	客户端存储的cookie是服务端返回的字段信息，也是服务端返回的数据，前端保存在cookie中
+<script>
+function setCookie(cname,cvalue,exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires=" + d.toGMTString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
-	cookie局限性1.特定域名下生成的cookie有限制，ie6 20个
-	ie7 及之后50个 火狐 50个 Opera 30个 苹果和Chrome没有限制
-	2.cookie最大为4096字节
--->
-<!-- 设置cookie -->
-<script type="text/javascript">
-	
-	</script>
-</body>
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  var user=getCookie("username");
+  if (user != "") {
+    alert("再次欢迎您，" + user);
+  } else {
+     user = prompt("请输入姓名：","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
+</script>
+</head>
+
+<body onload="checkCookie()"></body>
+
 </html>
